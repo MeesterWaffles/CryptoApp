@@ -3,7 +3,6 @@ package com.example.cryptoapp.coingecko.domain.Coins;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.example.cryptoapp.coingecko.domain.Coins.CoinData.Roi;
 import lombok.*;
-
 import java.util.Map;
 
 @Data
@@ -76,5 +75,4 @@ public class MarketData {
     private double circulatingSupply;
     @JsonProperty("last_updated")
     private String lastUpdated;
-
 }
