@@ -5,7 +5,5 @@ import java.util.*
 
 @Entity
 data class Crypto(@PrimaryKey val id: UUID = UUID.randomUUID(),
-                 var title: String = "",
-                 var date: Date = Date(),
-                 var isSolved: Boolean = false,
-                 var suspect: String = "")
+                  var cryptoName: String = "",
+                  var price: Double = 0.0)
