@@ -3,8 +3,4 @@
     <string name="crypto_title">title</string>
     <string name="crypto_date">date</string>
     <string name="crypto_details">details</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="paul_blart">Paul Blart!</string>
 </resources>

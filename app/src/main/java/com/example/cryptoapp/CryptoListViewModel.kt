@@ -1,24 +1,33 @@
 package com.example.cryptoapp
 
 import androidx.lifecycle.ViewModel
-import com.example.cryptoapp.coingecko.constant.Currency
-import com.example.cryptoapp.coingecko.domain.Coins.CoinList
 import com.example.cryptoapp.coingecko.impl.CoinGeckoApiClientImpl
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.schedulers.Schedulers
 
 class CryptoListViewModel : ViewModel() {
 
-    //private val client =  CoinGeckoApiClientImpl()
     val cryptos = mutableListOf<Crypto>()
-    //private val cryptoList: MutableList<CoinList> = client.coinList
 
     init {
-        for (i in 0 until 100) {
-            val crypto = Crypto()
-            val name = "$i"
-                // cryptoList[0].toString()
-            crypto.cryptoName = "Name: $name"
-            crypto.price = 0.0
-            cryptos += crypto
+        Single.fromCallable {
+            // Here, we load the coin list from the CoinGecko API
+            val client = CoinGeckoApiClientImpl()
+            client.ping()
+            return@fromCallable client.coinList
         }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { cryptoList ->
+                // And then we display it.
+                for (i in 0 until 100) {
+                    val crypto = Crypto()
+                    //val num = "$i"
+                    crypto.cryptoName = cryptoList[i].name.toString()
+                    crypto.price = 69.0
+                    cryptos += crypto
+                }
+            }
     }
 }

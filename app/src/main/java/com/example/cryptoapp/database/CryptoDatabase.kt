@@ -8,7 +8,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.cryptoapp.Crypto
 import com.example.cryptoapp.database.CryptoDao
 
-@Database(entities = [ Crypto::class ], version=2)
+@Database(entities = [ Crypto::class ], version=3)
 @TypeConverters(CryptoTypeConverters::class)
 abstract class CryptoDatabase : RoomDatabase() {
     abstract fun cryptoDao(): CryptoDao
@@ -17,7 +17,7 @@ abstract class CryptoDatabase : RoomDatabase() {
 val migration_1_2 = object : Migration(1,2) {
     override fun migrate(database: SupportSQLiteDatabase) {
         database.execSQL(
-            "ALTER TABLE Crime ADD COLUMN suspect TEXT NOT NULL DEFAULT ''"
+            "ALTER TABLE Crypto ADD COLUMN suspect TEXT NOT NULL DEFAULT ''"
         )
     }
 }

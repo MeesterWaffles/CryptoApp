@@ -8,10 +8,10 @@ import lombok.*;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CoinList {
     @JsonProperty("id")
-    private String id;
+    public String id;
     @JsonProperty("symbol")
-    private String symbol;
+    public String symbol;
     @JsonProperty("name")
-    private String name;
+    public String name;
 
 }
