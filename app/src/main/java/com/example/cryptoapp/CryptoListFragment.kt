@@ -35,7 +35,7 @@ class CryptoListFragment : Fragment() {
     private inner class CryptoHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
         private lateinit var crypto: Crypto
         private val titleTextView: TextView = itemView.findViewById(R.id.crypto_title)
-        private val priceTextView: TextView = itemView.findViewById(R.id.price)
+        private val priceTextView: TextView = itemView.findViewById(R.id.crypto_price)
 
         init {
             itemView.setOnClickListener(this)
@@ -48,8 +48,14 @@ class CryptoListFragment : Fragment() {
         }
 
         override fun onClick(v: View) {
+            updateUI()
             Toast.makeText(context, "${crypto.cryptoName} pressed!", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateUI()
     }
 
     override fun onCreateView(
@@ -67,6 +73,7 @@ class CryptoListFragment : Fragment() {
 
     private fun updateUI() {
         val cryptos = cryptoListViewModel.cryptos
+        Log.d("*****CRYPTOS*****", "${cryptoListViewModel.cryptos.size}")
         adapter = CryptoAdapter(cryptos)
         cryptoRecyclerView.adapter = adapter
     }

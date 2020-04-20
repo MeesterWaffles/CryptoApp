@@ -6,14 +6,6 @@
     app:startDestination="@id/cryptoListFragment">
 
     <fragment
-        android:id="@+id/cryptoFragment"
-        android:name="com.example.cryptoapp.CryptoFragment"
-        android:label="CryptoFragment" >
-        <action
-            android:id="@+id/action_cryptoFragment_to_cryptoListFragment"
-            app:destination="@id/cryptoListFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/cryptoListFragment"
         android:name="com.example.cryptoapp.CryptoListFragment"
         android:label="CryptoListFragment" />
@@ -22,7 +14,7 @@
         android:name="com.example.cryptoapp.LandingFragment"
         android:label="LandingFragment" >
         <action
-            android:id="@+id/action_landingFragment_to_cryptoFragment"
-            app:destination="@id/cryptoFragment" />
+            android:id="@+id/action_landingFragment_to_cryptoListFragment"
+            app:destination="@id/cryptoListFragment" />
     </fragment>
 </navigation>

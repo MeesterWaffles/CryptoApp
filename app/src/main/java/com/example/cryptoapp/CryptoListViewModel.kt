@@ -1,5 +1,6 @@
 package com.example.cryptoapp
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.cryptoapp.coingecko.impl.CoinGeckoApiClientImpl
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -14,7 +15,7 @@ class CryptoListViewModel : ViewModel() {
         Single.fromCallable {
             // Here, we load the coin list from the CoinGecko API
             val client = CoinGeckoApiClientImpl()
-            client.ping()
+            Log.d("*****CoinGecko*****", client.ping().toString())
             return@fromCallable client.coinList
         }
             .subscribeOn(Schedulers.io())
@@ -28,6 +29,7 @@ class CryptoListViewModel : ViewModel() {
                     crypto.price = 69.0
                     cryptos += crypto
                 }
+                Log.d("*****CRYPTO*****","# Of Cryptos In Data Structure: ${cryptos.size}")
             }
     }
 }
