@@ -1,5 +1,4 @@
 package com.example.cryptoapp.coingecko.domain.Coins;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.example.cryptoapp.coingecko.domain.Coins.CoinData.Roi;
@@ -8,53 +7,54 @@ import lombok.*;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CoinMarkets {
+public class CoinMarkets
+{
     @JsonProperty("id")
-    private String id;
+    public String id;
     @JsonProperty("symbol")
-    private String symbol;
+    public String symbol;
     @JsonProperty("name")
-    private String name;
+    public String name;
     @JsonProperty("image")
-    private String image;
+    public String image;
     @JsonProperty("current_price")
-    private long currentPrice;
+    public long currentPrice;
     @JsonProperty("market_cap")
-    private long marketCap;
+    public long marketCap;
     @JsonProperty("market_cap_rank")
-    private long marketCapRank;
+    public long marketCapRank;
     @JsonProperty("total_volume")
-    private long totalVolume;
+    public long totalVolume;
     @JsonProperty("high_24h")
-    private long high24h;
+    public long high24h;
     @JsonProperty("low_24h")
-    private long low24h;
+    public long low24h;
     @JsonProperty("price_change_24h")
-    private double priceChange24h;
+    public double priceChange24h;
     @JsonProperty("price_change_percentage_24h")
-    private double priceChangePercentage24h;
+    public double priceChangePercentage24h;
     @JsonProperty("market_cap_change_24h")
-    private long marketCapChange24h;
+    public long marketCapChange24h;
     @JsonProperty("market_cap_change_percentage_24h")
-    private double marketCapChangePercentage24h;
+    public double marketCapChangePercentage24h;
     @JsonProperty("circulating_supply")
-    private long circulatingSupply;
+    public long circulatingSupply;
     @JsonProperty("total_supply")
-    private long totalSupply;
+    public long totalSupply;
     @JsonProperty("ath")
-    private long ath;
+    public long ath;
     @JsonProperty("ath_change_percentage")
-    private double athChangePercentage;
+    public double athChangePercentage;
     @JsonProperty("ath_date")
-    private String athDate;
+    public String athDate;
     @JsonProperty("roi")
-    private Roi roi;
+    public Roi roi;
     @JsonProperty("last_updated")
-    private String lastUpdated;
+    public String lastUpdated;
     @JsonProperty("sparkline_in_7d")
-    private SparklineIn7d sparklineIn7d;
+    public SparklineIn7d sparklineIn7d;
     @JsonProperty("price_change_percentage_1h_in_currency")
-    private double priceChangePercentage1hInCurrency;
+    public double priceChangePercentage1hInCurrency;
 
 }
 
