@@ -10,6 +10,4 @@ import lombok.*;
 public class Global {
     @JsonProperty("data")
     private GlobalData data;
-
-
 }

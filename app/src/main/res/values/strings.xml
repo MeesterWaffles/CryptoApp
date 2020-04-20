@@ -3,4 +3,7 @@
     <string name="crypto_title">title</string>
     <string name="crypto_price">price</string>
     <string name="crypto_details">details</string>
+    <string name="mktcap">mktcap</string>
+    <string name="ath">ath</string>
+    <string name="crypto_hr">crypto_hr</string>
 </resources>

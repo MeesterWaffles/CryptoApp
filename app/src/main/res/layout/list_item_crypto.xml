@@ -37,9 +37,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/crypto_title"
-            android:layout_toRightOf="@+id/crypto_imageView"
+            android:layout_toEndOf="@+id/crypto_imageView"
             android:text="@string/crypto_price"
             android:textSize="30sp"/>
+
+<!--        <TextView-->
+<!--            android:id="@+id/crypto_mktcap"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:text="@string/mktcap"-->
+<!--            android:textSize="30sp" />-->
+
+        <TextView
+            android:id="@+id/crypto_hr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:text="@string/crypto_hr"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/crypto_ath"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/crypto_hr"
+            android:layout_alignParentEnd="true"
+            android:text="@string/ath"
+            android:textSize="30sp" />
 
     </RelativeLayout>
 

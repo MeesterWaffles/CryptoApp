@@ -18,31 +18,31 @@ public class CoinMarkets
     @JsonProperty("image")
     public String image;
     @JsonProperty("current_price")
-    public long currentPrice;
+    public float currentPrice;
     @JsonProperty("market_cap")
-    public long marketCap;
+    public float marketCap;
     @JsonProperty("market_cap_rank")
-    public long marketCapRank;
+    public int marketCapRank;
     @JsonProperty("total_volume")
-    public long totalVolume;
+    public float totalVolume;
     @JsonProperty("high_24h")
-    public long high24h;
+    public float high24h;
     @JsonProperty("low_24h")
-    public long low24h;
+    public float low24h;
     @JsonProperty("price_change_24h")
-    public double priceChange24h;
+    public float priceChange24h;
     @JsonProperty("price_change_percentage_24h")
-    public double priceChangePercentage24h;
+    public float priceChangePercentage24h;
     @JsonProperty("market_cap_change_24h")
-    public long marketCapChange24h;
+    public float marketCapChange24h;
     @JsonProperty("market_cap_change_percentage_24h")
-    public double marketCapChangePercentage24h;
+    public float marketCapChangePercentage24h;
     @JsonProperty("circulating_supply")
-    public long circulatingSupply;
+    public float circulatingSupply;
     @JsonProperty("total_supply")
-    public long totalSupply;
+    public float totalSupply;
     @JsonProperty("ath")
-    public long ath;
+    public float ath;
     @JsonProperty("ath_change_percentage")
     public double athChangePercentage;
     @JsonProperty("ath_date")

@@ -7,8 +7,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 
-import org.json.JSONArray
-
 class CryptoListViewModel : ViewModel() {
 
     var cryptos = mutableListOf<Crypto>()
@@ -22,18 +20,12 @@ class CryptoListViewModel : ViewModel() {
             //Ping to make sure client is responding
             Log.d("*****CoinGecko*****", client.ping().toString())
 
-            // Here, we load the coin list from the CoinGecko API
-            val list = client.coinList
-
-            println(list)
-
-            //Here, we make our own list
+            //Here, we make a local list, to be passed to the UI thread upon sanitization
             val cryptoList = mutableListOf<Crypto>()
 
             //Get response from client
             val response = client.getCoinMarkets("usd")
-            Log.d("*coingecko*", response.toString())
-
+            Log.d("*****CoinGecko*****", response.toString())
 
             //Iterate over cryptos and add to data structure
             (0..99).forEach { index ->
@@ -44,7 +36,7 @@ class CryptoListViewModel : ViewModel() {
                     crypto.symbol = response[index].symbol
                     crypto.cryptoName = response[index].name
                     crypto.image_string_URL = response[index].image
-                    crypto.price = response[index].currentPrice.toString()
+                    crypto.price = "$" + response[index].currentPrice.toString()
                     crypto.marketCap = response[index].marketCap.toString()
                     crypto.market_cap_rank = response[index].marketCapRank.toString()
                     crypto.total_volume = response[index].totalVolume.toString()
@@ -61,7 +53,7 @@ class CryptoListViewModel : ViewModel() {
             }
             //Return data structure
             return@fromCallable cryptoList
-        }
+        } //Return to UIthread
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { cryptoList ->

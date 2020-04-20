@@ -36,6 +36,9 @@ class CryptoListFragment : Fragment() {
         private lateinit var crypto: Crypto
         private val titleTextView: TextView = itemView.findViewById(R.id.crypto_title)
         private val priceTextView: TextView = itemView.findViewById(R.id.crypto_price)
+        //private val mktcapTextView: TextView = itemView.findViewById(R.id.crypto_mktcap)
+        private val allTimeHighTextView: TextView = itemView.findViewById(R.id.crypto_ath)
+        private val priceChange24hrTextView: TextView = itemView.findViewById(R.id.crypto_hr)
 
         init {
             itemView.setOnClickListener(this)
@@ -43,8 +46,13 @@ class CryptoListFragment : Fragment() {
 
         fun bind(crypto: Crypto) {
             this.crypto = crypto
-            titleTextView.text = this.crypto.cryptoName
-            priceTextView.text = this.crypto.price.toString()
+            val str = this.crypto.market_cap_rank + ": " + this.crypto.cryptoName
+            titleTextView.text = str
+            priceTextView.text = this.crypto.price
+            //mktcapTextView.text = this.crypto.marketCap
+            allTimeHighTextView.text = this.crypto.ath
+            val str2 = "${this.crypto.price_change_percentage_24h}%"
+            priceChange24hrTextView.text = str2
         }
 
         override fun onClick(v: View) {
